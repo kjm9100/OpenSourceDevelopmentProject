@@ -8,6 +8,11 @@ public class ChatData {
     public String name;    //사용자의 이름
     public String num;     //사용자 사번 또는 학번
 
+    public int check_cnt=0;  //질문에 대한 공감 갯수 정보
+    public Map<String, Boolean> checks = new HashMap<>();
+    public boolean pushAlaCheck = false;
+
+
     public String getNum() {
         return num;
     }
@@ -15,9 +20,6 @@ public class ChatData {
     public void setNum(String num) {
         this.num = num;
     }
-    public int check_cnt =0;  //질문에 대한 공감 갯수 정보
-    public Map<String, Boolean> checks = new HashMap<>();
-
 
     public Map<String, Boolean> getChecks() {
         return checks;
@@ -50,7 +52,5 @@ public class ChatData {
     public void setCheck_cnt(int check_cnt) {
         this.check_cnt = check_cnt;
     }
-
-
 
 }

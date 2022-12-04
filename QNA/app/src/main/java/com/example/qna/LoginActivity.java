@@ -2,6 +2,7 @@ package com.example.qna;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String userId = Id.getText().toString();
                 String userPasswd = Passwd.getText().toString();
+                int StdIDLength = userId.length();
 
                 if (userId == "") {
                     // 토스트 메시지 - 공백은 입력할 수 없습니다.
@@ -61,43 +63,50 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 //                        Log.d("UserCheck",snapshot.child(userId).child("passwd").getValue().toString());
-                            if (snapshot.child("Students").child(userId).exists()) {                                    //학생 사용자의 저장된 아이디중 같은 아이디 있는지 확인한다.
-                                UserData userdata = snapshot.child("Students").child(userId).getValue(UserData.class);  //비밀번호를 비교하기 위해 입력한 아이디와 같은 아이디의 유저 정보를 가져와 저장한다.
-                                if (userdata.getPasswd() != null && userdata.getPasswd().equals(userPasswd)) {              //입력한 비밀번호가 공백이 아니고 저장된 비밀번호와 같을 때 로그인 성공
+                            if (StdIDLength == 10) {
+//                                Log.d("USERTYPETYPE", "studentSuccess");
+                                if (snapshot.child("Students").child(userId).exists()) {                                    //학생 사용자의 저장된 아이디중 같은 아이디 있는지 확인한다.
+                                    UserData userdata = snapshot.child("Students").child(userId).getValue(UserData.class);  //비밀번호를 비교하기 위해 입력한 아이디와 같은 아이디의 유저 정보를 가져와 저장한다.
+                                    if (userdata.getPasswd() != null && userdata.getPasswd().equals(userPasswd)) {              //입력한 비밀번호가 공백이 아니고 저장된 비밀번호와 같을 때 로그인 성공
 //                                    Intent intent = new Intent(loginActivity.this, MainActivity.class);    //로그인 성공시 메인화면으로 넘어간다.
-                                    Toast toast = Toast.makeText(LoginActivity.this,
-                                            "Login succeeded!", Toast.LENGTH_SHORT);
-                                    toast.show();
+                                        Toast toast = Toast.makeText(LoginActivity.this,
+                                                "Login succeeded!", Toast.LENGTH_SHORT);
+                                        toast.show();
 
-                                    Intent MainIntent = new Intent(LoginActivity.this, MainActivity.class);
-                                    //로그인한 사용자의 정보도 넘겨준다.
+                                        Intent MainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                        //로그인한 사용자의 정보도 넘겨준다.
 //                                    MainIntent.putExtra("ID", userId);
-                                    MainIntent.putExtra("Name", userdata.getUserName());
-                                    MainIntent.putExtra("Number", userdata.getNum());
-                                    LoginActivity.this.startActivity(MainIntent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "비밀번호를 다시 입력하세요.", Toast.LENGTH_LONG).show();
+                                        MainIntent.putExtra("Name", userdata.getUserName());
+                                        MainIntent.putExtra("Number", userdata.getNum());
+                                        LoginActivity.this.startActivity(MainIntent);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "비밀번호를 다시 입력하세요.", Toast.LENGTH_LONG).show();
+                                    }
                                 }
-                            } else if (snapshot.child("Professor").child(userId).exists()) {                            //학생 사용자 리스트에서 아이디를 찾지 못하면 교수 사용자 리스트로 넘어감
-                                UserData userdata = snapshot.child("Professor").child(userId).getValue(UserData.class);
-                                if (userdata.getPasswd() != null && userdata.getPasswd().equals(userPasswd)) {
-                                    Toast toast = Toast.makeText(LoginActivity.this,
-                                            "Login succeeded!", Toast.LENGTH_SHORT);
-                                    toast.show();
+                            }
+                            else {
+//                                Log.d("USERTYPETYPE", "professorSuccess");
+                                if (snapshot.child("Professor").child(userId).exists()) {                            //학생 사용자 리스트에서 아이디를 찾지 못하면 교수 사용자 리스트로 넘어감
+                                    UserData userdata = snapshot.child("Professor").child(userId).getValue(UserData.class);
+                                    if (userdata.getPasswd() != null && userdata.getPasswd().equals(userPasswd)) {
+                                        Toast toast = Toast.makeText(LoginActivity.this,
+                                                "Login succeeded!", Toast.LENGTH_SHORT);
+                                        toast.show();
 
-                                    Intent MainIntent = new Intent(LoginActivity.this, MainActivity.class);
-                                    //로그인한 사용자의 정보도 넘겨준다.
+                                        Intent MainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                        //로그인한 사용자의 정보도 넘겨준다.
 //                                    MainIntent.putExtra("ID", userId);
-                                    MainIntent.putExtra("Name", userdata.getUserName());
-                                    MainIntent.putExtra("Number", userdata.getNum());
-                                    LoginActivity.this.startActivity(MainIntent);
-                                    finish();
+                                        MainIntent.putExtra("Name", userdata.getUserName());
+                                        MainIntent.putExtra("Number", userdata.getNum());
+                                        LoginActivity.this.startActivity(MainIntent);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "비밀번호를 다시 입력하세요.", Toast.LENGTH_LONG).show();
+                                    }
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "비밀번호를 다시 입력하세요.", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "아이디를 다시 입력하세요.", Toast.LENGTH_LONG).show();
                                 }
-                            } else {
-                                Toast.makeText(getApplicationContext(), "아이디를 다시 입력하세요.", Toast.LENGTH_LONG).show();
                             }
                         }
 

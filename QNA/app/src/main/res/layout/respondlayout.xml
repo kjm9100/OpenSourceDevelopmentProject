@@ -9,20 +9,13 @@
     <!-- A CardView that contains a TextView -->
 
     <TextView
-        android:id="@+id/username_textview"
+        android:id="@+id/respond_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp" />
 
-    <CheckBox
-        android:id="@+id/questioncheck"
-        android:layout_width="64dp"
-        android:layout_height="wrap_content">
-
-    </CheckBox>
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/ChatRoom_CardView"
+        android:id="@+id/RespondRoom_CardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         card_view:cardCornerRadius="5dp"
@@ -30,7 +23,7 @@
         card_view:cardUseCompatPadding="true">
 
         <TextView
-            android:id="@+id/ChatRoomList"
+            android:id="@+id/RespondRoom_List"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

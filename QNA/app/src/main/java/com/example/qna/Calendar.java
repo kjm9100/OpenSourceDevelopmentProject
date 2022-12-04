@@ -21,11 +21,13 @@ public class Calendar extends Activity{
     long mNow;
     Date mDate;
     SimpleDateFormat mFormat=new SimpleDateFormat("MM");
+
     public String getTime(){
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
         return mFormat.format(mDate);
     }
+
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home);

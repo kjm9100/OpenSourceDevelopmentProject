@@ -6,8 +6,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:layout_height="857dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,39 +37,51 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:layout_height="281dp"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/chatLayout"
+            <ScrollView
+                android:id="@+id/questionScrollView"
                 android:layout_width="match_parent"
-                android:layout_height="636dp"
-                android:orientation="vertical">
+                android:layout_height="266dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/my_recycler_view"
+                <TextView
+                    android:id="@+id/questionView"
                     android:layout_width="match_parent"
-                    android:layout_height="620dp" />
-            </LinearLayout>
+                    android:layout_height="match_parent"></TextView>
 
-            <LinearLayout
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/respondView"
                 android:layout_width="match_parent"
+                android:layout_height="331dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="81dp">
+
+            <EditText
+                android:id="@+id/respondEdit"
+                android:layout_width="315dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal" >
+                android:hint="respond..." />
 
-                <EditText
-                    android:id="@+id/chatEdit"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/respondSendBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:fontFamily="@font/nanumsquare_eb"
+                android:text="send" />
 
-                <Button
-                    android:id="@+id/btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nanumsquare_eb"
-                    android:text="전송" />
-
-            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

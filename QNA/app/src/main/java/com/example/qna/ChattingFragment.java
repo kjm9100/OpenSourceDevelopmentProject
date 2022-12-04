@@ -16,7 +16,8 @@ public class ChattingFragment extends Fragment implements View.OnClickListener{
     private View view;
     private String CurrentUserName;
     private String CurrentUesrNumId;
-    Button subjectButton1, subjectButton2;
+    private Button subjectButton1, subjectButton2;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,7 +42,6 @@ public class ChattingFragment extends Fragment implements View.OnClickListener{
                 intent.putExtra("Subject","subject1");
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
-
             }
         });
 
@@ -58,7 +58,6 @@ public class ChattingFragment extends Fragment implements View.OnClickListener{
                 startActivity(intent);
             }
         });
-
         return view;
     }
 

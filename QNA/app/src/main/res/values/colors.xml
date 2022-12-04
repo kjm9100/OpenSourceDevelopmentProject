@@ -15,7 +15,9 @@
 
     <color name="yellow">#ffe761</color>
     <color name="lightGreen">#c5e99b</color>
+    <color name="lightGreen2">#aed184</color>
     <color name="green">#8fbc94</color>
+    <color name="green2">#17e37e</color>
     <color name="darkGreen">#548687</color>
     <color name="purple">#56445d</color>
 </resources>
