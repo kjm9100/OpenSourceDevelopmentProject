@@ -128,7 +128,7 @@ public class RespondActivity extends AppCompatActivity {
         resData.setRespond(respond);
         resData.setUserNumId(userid);
         myRef.child("ChatRoom_Question").child(Subject).child("respond").child(randomKey).push().setValue(resData);
-        myRef.child("Users").child(userid).child("Question_Answer").push().setValue(respond);
+        myRef.child("Users").child(userid).child("Question_Answer").push().setValue(resData.getRespond());
     }
 
     private void sendPostToFCM_usr(final String title, final String body, final String fcmToken){

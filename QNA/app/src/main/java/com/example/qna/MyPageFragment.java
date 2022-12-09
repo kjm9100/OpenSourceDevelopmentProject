@@ -105,7 +105,7 @@ public class MyPageFragment extends Fragment {
         subjects=(LinearLayout)view.findViewById(R.id.subjects);
         mypagelayout=(LinearLayout)view.findViewById(R.id.mypagelayout);
         myqlayout =(LinearLayout) view.findViewById(R.id.myqlayout);
-        myalayout=(LinearLayout) view.findViewById(R.id.myqlayout);
+        myalayout=(LinearLayout) view.findViewById(R.id.myanswerlayout);
         interlayout=(LinearLayout) view.findViewById(R.id.interestlayout);
 
         qlist = (ListView)view.findViewById(R.id.myqlist);
@@ -184,9 +184,15 @@ public class MyPageFragment extends Fragment {
                         for(DataSnapshot datasnapshot : snapshot.getChildren()) {
                             ChatData QData = datasnapshot.getValue(ChatData.class);
                             Log.d("QUESTIONCHECK----",QData.getMessage());
-                            QList.add(QData.getMessage());
+                            if(QData.getMessage()!=null){
+                                QList.add(QData.getMessage());
+                            }
                             j++;
                         }
+                        ArrayAdapter<String>adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1, QList);
+                        qlist.setAdapter(adapter);
+
+//                        adapter.notifyDataSetChanged();
                         j=0;
                     }
                     @Override
@@ -194,8 +200,6 @@ public class MyPageFragment extends Fragment {
 
                     }
                 });
-                ArrayAdapter<String>adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1, QList);
-                qlist.setAdapter(adapter);
             }
         });
 
@@ -218,7 +222,7 @@ public class MyPageFragment extends Fragment {
         back_i.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myqlayout.setVisibility(View.GONE);
+                interlayout.setVisibility(View.GONE);
                 mypagelayout.setVisibility(View.VISIBLE);
             }
         });
@@ -226,7 +230,7 @@ public class MyPageFragment extends Fragment {
         answerQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                interlayout.setVisibility(View.VISIBLE);
+                myalayout.setVisibility(View.VISIBLE);
                 mypagelayout.setVisibility(View.GONE);
 
                 databaseReference.child("Users").child(CurrentUserID).child("Question_Answer").addValueEventListener(new ValueEventListener() {
@@ -236,9 +240,16 @@ public class MyPageFragment extends Fragment {
                         for (DataSnapshot datasnapshot : snapshot.getChildren()) {
                             String AData = datasnapshot.getValue().toString();
                             Log.d("QUESTIONCHECK----", AData);
-                            AList.add(AData);
+                            if(AData!=null){
+                                AList.add(AData);
+                            }
                             j++;
                         }
+
+                        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, AList);
+                        alist.setAdapter(adapter1);
+
+//                        adapter1.notifyDataSetChanged();
                         j = 0;
                     }
 
@@ -247,11 +258,9 @@ public class MyPageFragment extends Fragment {
 
                     }
                 });
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, AList);
-                alist.setAdapter(adapter);
+
             }
         });
-
 
         back_a.setOnClickListener(new View.OnClickListener() {
             @Override
