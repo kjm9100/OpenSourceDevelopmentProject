@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -38,8 +39,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="30dp">
+            android:layout_margin="30dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="100dp"
@@ -61,17 +62,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="        2021041078"
                     android:fontFamily="@font/nanumsquare_eb"
+                    android:text="        2021041078"
                     android:textSize="25dp" />
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumsquare_b"
                     android:text="  wda021212@gmail.com"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/nanumsquare_b"/>
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
@@ -81,12 +82,548 @@
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:background="@color/colorPrimaryDark"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal" />
+
 
         <LinearLayout
+            android:id="@+id/subjects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/semester1"
+                android:layout_width="match_parent"
+                android:layout_height="450dp">
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="30dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/button9"
+                            android:fontFamily="@font/nanumsquare_b"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Freshman"
+                            android:textColor="#044826"
+                            android:textSize="25dp" />
+
+                        <CheckBox
+                            android:id="@+id/fresh1_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  이산수학"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/fresh1_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  미래설계탐색"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/button9"
+                            android:fontFamily="@font/nanumsquare_b"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Sophomore"
+                            android:textColor="#044826"
+                            android:textSize="25dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho1_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  자료구조"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho1_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  컴퓨터구조"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho1_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  소프트웨어실전영어"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho1_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  객체지향프로그래밍"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho1_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  선형대수학"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho1_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  미래설계구현"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho1_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  오픈소스기초프로젝트"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/button9"
+                            android:fontFamily="@font/nanumsquare_b"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Junior"
+                            android:textColor="#044826"
+                            android:textSize="25dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior1_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  운영체제"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior1_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  객체지향설계"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior1_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  오픈소스웹소프트웨어"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior1_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  컴파일러"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior1_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  컴퓨터네트워크"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior1_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  창업기획"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior1_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  오픈소스전문프로젝트"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/button9"
+                            android:fontFamily="@font/nanumsquare_b"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Senior"
+                            android:textColor="#044826"
+                            android:textSize="25dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior1_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  캡스톤디자인"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior1_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  기계학습"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior1_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  임베디드시스템"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior1_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  영상처리"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior1_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  창업산학초청세미나1"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior1_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  정보‧컴퓨터교재연구 및 지도법"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior1_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  빅데이터시스템설계"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:text="End" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/semester2"
+                android:layout_width="match_parent"
+                android:layout_height="450dp">
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="30dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="2nd Semester"
+                            android:textSize="30dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/button9"
+                            android:fontFamily="@font/nanumsquare_b"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Freshman"
+                            android:textColor="#044826"
+                            android:textSize="25dp" />
+
+                        <CheckBox
+                            android:id="@+id/fresh2_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  컴퓨터시스템개론"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/fresh2_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  오픈소스소프트웨어이해와실습"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/fresh2_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  미래설계준비"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/button9"
+                            android:fontFamily="@font/nanumsquare_b"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Sophomore"
+                            android:textColor="#044826"
+                            android:textSize="25dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho2_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  알고리즘"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho2_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  프로그래밍언어론"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho2_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  시스템프로그래밍"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho2_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  창업탐색"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho2_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  오픈소스개발프로젝트"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho2_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  확률및통계"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/shopho2_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  컴퓨터그래픽스"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/button9"
+                            android:fontFamily="@font/nanumsquare_b"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Junior"
+                            android:textColor="#044826"
+                            android:textSize="25dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior2_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  소프트웨어공학"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior2_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  산학프로젝트(종합설계)"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior2_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  펌웨어프로그래밍"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior2_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  창업설계"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior2_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  정보보호"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior2_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  인공지능"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/junior2_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  데이터베이스시스템"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/button9"
+                            android:fontFamily="@font/nanumsquare_b"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Senior"
+                            android:textColor="#044826"
+                            android:textSize="25dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior2_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  창업파일럿프로젝트"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior2_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  정보검색"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior2_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  창업산학초청세미나2"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior2_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  정보‧컴퓨터논리 및 논술"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior2_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  정보‧컴퓨터교육론"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior2_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  자연언어 처리"
+                            android:textSize="20dp" />
+
+                        <CheckBox
+                            android:id="@+id/senior2_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="  클라우드컴퓨팅"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:text="End" />
+
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btncancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:text="cancel" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnok"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="50dp"
+                        android:text="OK" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mypagelayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <Button
                 android:id="@+id/registrationQ"
@@ -100,7 +637,7 @@
                 android:fontFamily="@font/nanumsquare_b"
                 android:minHeight="50dp"
                 android:padding="10dp"
-                android:text="등록한 질문"
+                android:text="REGISTERED Q"
                 android:textColor="@color/colorPrimaryDark2"
                 android:textSize="30dp" />
 
@@ -116,7 +653,7 @@
                 android:fontFamily="@font/nanumsquare_b"
                 android:minHeight="50dp"
                 android:padding="10dp"
-                android:text="관심있는 질문"
+                android:text="INTERESTED Q"
                 android:textColor="@color/colorPrimaryDark2"
                 android:textSize="30dp" />
 
@@ -132,7 +669,7 @@
                 android:fontFamily="@font/nanumsquare_b"
                 android:minHeight="50dp"
                 android:padding="10dp"
-                android:text="답변한 질문"
+                android:text="ANSWERED Q"
                 android:textColor="@color/colorPrimaryDark2"
                 android:textSize="30dp" />
 
@@ -148,9 +685,90 @@
                 android:fontFamily="@font/nanumsquare_b"
                 android:minHeight="50dp"
                 android:padding="10dp"
-                android:text="교과목 선택"
+                android:text="SELECT SUBJECTS"
                 android:textColor="@color/colorPrimaryDark2"
-                android:textSize="30dp" />
+                android:textSize="28dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myanswerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ListView
+                android:id="@+id/myalist"
+                android:layout_width="match_parent"
+                android:layout_height="455dp">
+
+            </ListView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/backbtn_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="back" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/interestlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ListView
+                android:id="@+id/interestqlist"
+                android:layout_width="match_parent"
+                android:layout_height="455dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/backbtn_int"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="back" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myqlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ListView
+                android:id="@+id/myqlist"
+                android:layout_width="match_parent"
+                android:layout_height="455dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/backbtn_q"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="back" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

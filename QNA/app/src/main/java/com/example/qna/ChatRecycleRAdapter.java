@@ -1,36 +1,23 @@
 package com.example.qna;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.MutableData;
-import com.google.firebase.database.Transaction;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,7 +57,7 @@ public class ChatRecycleRAdapter extends RecyclerView.Adapter<ChatRecycleRAdapte
             textView_Username = itemView.findViewById(R.id.username_textview);
             textView_message = itemView.findViewById(R.id.ChatRoomList);
             cardView = itemView.findViewById(R.id.ChatRoom_CardView);
-            whole_msg = itemView.findViewById(R.id.whole_msg);
+            whole_msg = itemView.findViewById(R.id.whole_btn);
             check_box = itemView.findViewById(R.id.questioncheck);
             rootView = itemView;
         }

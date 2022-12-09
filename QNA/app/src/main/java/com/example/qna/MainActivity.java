@@ -70,10 +70,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch (n){
             case 0:
+                frag1.setArguments(UserDataBundle);
                 ft.replace(R.id.main_frameLayout, frag1);
                 ft.commit();
                 break;
             case 1:
+                frag2.setArguments(UserDataBundle);
                 ft.replace(R.id.main_frameLayout, frag2);
                 ft.commit();
                 break;
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
                 break;
             case 3:
+                frag4.setArguments(UserDataBundle);
                 ft.replace(R.id.main_frameLayout, frag4);
                 ft.commit();
                 break;

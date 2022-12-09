@@ -66,33 +66,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/subjectButton1"
+            <ListView
+                android:id="@+id/listView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="#FFFFFF"
-                android:fontFamily="@font/nanumsquare_eb"
-                android:text="Subject1"
-                android:textColor="@color/colorPrimaryDark2"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:layout_height="match_parent" />
 
-            <Button
-                android:id="@+id/subjectButton2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="#FFFFFF"
-                android:fontFamily="@font/nanumsquare_eb"
-                android:text="Subject2"
-                android:textColor="@color/colorPrimaryDark2"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+        </LinearLayout>>
 
-        </LinearLayout>
 
     </LinearLayout>
 

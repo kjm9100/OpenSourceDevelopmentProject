@@ -35,7 +35,6 @@ public class HomeFragment extends Fragment {
         return mFormat.format(mDate);
     }
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,6 +42,7 @@ public class HomeFragment extends Fragment {
 
         textviewcalendar=(TextView)view.findViewById(R.id.textviewcalendar);
         textviewcalendar.setText("loading");
+
         final Bundle bundle = new Bundle();
         new Thread(){
             @Override

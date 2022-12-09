@@ -2,13 +2,10 @@ package com.example.qna;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class RespondRecyclerAdapter extends RecyclerView.Adapter<RespondRecyclerAdapter.MyViewHolder> {
@@ -38,7 +34,7 @@ public class RespondRecyclerAdapter extends RecyclerView.Adapter<RespondRecycler
             respond = itemView.findViewById(R.id.RespondRoom_List);
             back = itemView.findViewById(R.id.RespondRoom_CardView);
             name = itemView.findViewById(R.id.respond_name_textview);
-            whole_rsp = itemView.findViewById(R.id.whole_msg);
+            whole_rsp = itemView.findViewById(R.id.whole_btn);
             rootView = itemView;
         }
     }
