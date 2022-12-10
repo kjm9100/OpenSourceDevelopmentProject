@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                    MainIntent.putExtra("ID", userId);
                                         MainIntent.putExtra("Name", userdata.getUserName());
                                         MainIntent.putExtra("Number", userdata.getNum());
+                                        MainIntent.putExtra("FCM",userdata.getFCM());
                                         LoginActivity.this.startActivity(MainIntent);
                                         finish();
                                     } else {
@@ -101,6 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                    MainIntent.putExtra("ID", userId);
                                         MainIntent.putExtra("Name", userdata.getUserName());
                                         MainIntent.putExtra("Number", userdata.getNum());
+                                        MainIntent.putExtra("FCM",userdata.getFCM());
                                         LoginActivity.this.startActivity(MainIntent);
                                         finish();
                                     } else {
@@ -111,7 +113,6 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 

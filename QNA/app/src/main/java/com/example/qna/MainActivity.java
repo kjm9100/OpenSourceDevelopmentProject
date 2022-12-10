@@ -24,16 +24,18 @@ public class MainActivity extends AppCompatActivity {
     private String CurrentUser;
     private String CurrentIDNum;
 
-//    private String FCMtoken = FirebaseMessaging.getInstance().getToken().getResult();
+    private String FCMtoken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         Intent MainInformIntent = getIntent();
         CurrentUser = MainInformIntent.getStringExtra("Name");
-        CurrentIDNum =MainInformIntent.getStringExtra("Number") ;
+        CurrentIDNum =MainInformIntent.getStringExtra("Number");
+        FCMtoken =MainInformIntent.getStringExtra("FCM");
 
         bottomNavigationView = findViewById(R.id.bottom_navigationView);
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener(){
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle UserDataBundle = new Bundle();
         UserDataBundle.putString("Name",CurrentUser);
         UserDataBundle.putString("UserNum",CurrentIDNum);
-//        UserDataBundle.putString("FCMT", FCMtoken);
+        UserDataBundle.putString("FCMT", FCMtoken);
 
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();

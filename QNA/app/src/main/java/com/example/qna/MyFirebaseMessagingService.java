@@ -76,6 +76,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken (@NonNull String token){
         super.onNewToken(token);
-        refreshedToken = FirebaseMessaging.getInstance().getToken().getResult();
+//        refreshedToken = FirebaseMessaging.getInstance().getToken().getResult();
     }
 }

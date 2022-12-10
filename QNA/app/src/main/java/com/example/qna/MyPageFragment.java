@@ -2,6 +2,7 @@ package com.example.qna;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.session.MediaSession;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -71,7 +72,7 @@ public class MyPageFragment extends Fragment {
     Date mDate;
     SimpleDateFormat mFormat=new SimpleDateFormat("MM");
 
-    String FCMtoken;
+    private String FCMtoken;
 
     public String getTime(){
         mNow = System.currentTimeMillis();
@@ -79,10 +80,19 @@ public class MyPageFragment extends Fragment {
         return mFormat.format(mDate);
     }
     public void adddata(String data, int i){
-//        SubjectData subName = new SubjectData();
-//        subName.setSubj(data);
-        databaseReference.child("UserData").child("Students").child(CurrentUserID).child("Subject").child("sub"+i).setValue(data);
-        databaseReference.child("ChatRoom_Member").child(data).child(CurrentUserID).setValue(FCMtoken);
+        TokenData tdata = new TokenData();
+        tdata.setToken(FCMtoken);
+        tdata.setUID(CurrentUserID);
+        int lenUID = CurrentUserID.length();
+
+        if(lenUID == 10) {
+            databaseReference.child("ChatRoom_Member").child(data).child("Student").child(CurrentUserID).setValue(tdata);
+            databaseReference.child("UserData").child("Students").child(CurrentUserID).child("Subject").child("sub"+i).setValue(data);
+        }
+        else{
+            databaseReference.child("ChatRoom_Member").child(data).child("Pro").setValue(FCMtoken);
+            databaseReference.child("UserData").child("Professor").child(CurrentUserID).child("Subject").child("sub"+i).setValue(data);
+        }
     }
 
     @Nullable
@@ -1657,7 +1667,6 @@ public class MyPageFragment extends Fragment {
             }
 
         });
-
 
         subjectChoice.setOnClickListener(new View.OnClickListener() {
             @Override

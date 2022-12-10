@@ -38,6 +38,8 @@ public class ChattingFragment extends Fragment implements View.OnClickListener{
     private View view;
     private String CurrentUserName;
     private String CurrentUesrNumId;
+    private  int len;
+    private String sub;
 
     @Nullable
     @Override
@@ -45,6 +47,14 @@ public class ChattingFragment extends Fragment implements View.OnClickListener{
         Bundle bundle = getArguments();
         CurrentUserName =bundle.getString("Name");
         CurrentUesrNumId =bundle.getString("UserNum");
+        len = CurrentUesrNumId.length();
+
+        if(len == 10){
+            sub = "Students";
+        }
+        else{
+            sub = "Professor";
+        }
 
         subList = new ArrayList<>();
 
@@ -52,7 +62,9 @@ public class ChattingFragment extends Fragment implements View.OnClickListener{
 
         ListView listview = view.findViewById(R.id.listView);
 
-        myRef.child("UserData").child("Students").child(CurrentUesrNumId).child("Subject").addValueEventListener(new ValueEventListener() {
+
+
+        myRef.child("UserData").child(sub).child(CurrentUesrNumId).child("Subject").addValueEventListener(new ValueEventListener() {
             @Override
             //                Log.d("SUbjectcheck", snapshot.getValue().toString());
             public void onDataChange(@NonNull DataSnapshot snapshot) {

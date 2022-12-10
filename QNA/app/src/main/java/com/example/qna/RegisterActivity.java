@@ -108,6 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 Intent intent1 = new Intent(RegisterActivity.this, LoginActivity.class);
                                 intent1.putExtra("StdId", NUM);
                                 intent1.putExtra("name", NAME);
+                                intent1.putExtra("FCM", testFCM);
 //                                intent1.putExtra("FCM", testFCM);
                                 startActivity(intent1);
                             }
@@ -120,6 +121,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 Intent intent1 = new Intent(RegisterActivity.this, LoginActivity.class);
                                 intent1.putExtra("StdId", NUM);
                                 intent1.putExtra("name", NAME);
+                                intent1.putExtra("FCM", testFCM);
+
                                 startActivity(intent1);
                             }
                         }

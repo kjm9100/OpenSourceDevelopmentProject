@@ -3,6 +3,7 @@ package com.example.qna;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -51,6 +52,7 @@ public class ChatRecycleRAdapter extends RecyclerView.Adapter<ChatRecycleRAdapte
     private String Subject;
     private boolean check = false;
     private String randomKey;
+    private String ProKey;
 
     //데이터 레이아웃
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -100,6 +102,7 @@ public class ChatRecycleRAdapter extends RecyclerView.Adapter<ChatRecycleRAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         int thisposition = position;
         int count;
+        TokenData proTok = new TokenData();
         ChatData chat = mDataset.get(position);
         holder.textView_message.setText(chat.getMessage());
 
@@ -119,37 +122,45 @@ public class ChatRecycleRAdapter extends RecyclerView.Adapter<ChatRecycleRAdapte
             holder.whole_msg.setGravity(Gravity.START); //다른 사용자 이름, 작성한 메시지 왼쪽으로 정렬
         }
 
+        myRef.child("serverkey").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                SERVER_KEY = snapshot.child("key").getValue().toString();
+                Log.d("SERVERKEY",SERVER_KEY);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 //        holder.check_box.setChecked(check);
         holder.check_box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chat.setCheck_cnt(chat.getCheck_cnt()+1);
-                if(chat.getCheck_cnt() >= 1){
-//                    sendPostToFCM_usr()
-                }
+                // 해당 채팅방 교수님 토큰 DB 접근
+//                if(chat.getCheck_cnt() >= 1){
+                    myRef.child("ChatRoom_Member").child(Subject).child("Pro").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Log.d("CHECKPRO", snapshot.getValue().toString());
+                         ProKey = snapshot.getValue().toString();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+//                     sendPostToFCM_usr(Subject, Subject+ "에서" + "교수님의 도움이 필요해요!",ProKey);
+//                }
+                sendPostToFCM_usr(Subject, Subject+ "에서" + "교수님의 도움이 필요해요!",ProKey);
 
                 updateData(chat.getCheck_cnt(),thisposition);
             }
         });
-//        holder.check_box.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-////            @Override
-////            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-////                chat.setCheck_cnt((chat.getCheck_cnt()+1));
-////
-////
-//////                if(!isChecked){
-//////                    check = true;
-//////                    chat.setCheck_cnt(chat.getCheck_cnt()-1);
-//////                    //                    updateData(chat.gestNum(),(chat.getCheck_cnt()+1), position);
-//////                }
-//////                else if(isChecked){
-//////                    check = false;
-//////                    chat.setCheck_cnt(chat.getCheck_cnt()+1);
-////////                    updateData(chat.getNum(),(chat.getCheck_cnt()-1), position);
-//////                }
-////            }
-////        });
-//
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
