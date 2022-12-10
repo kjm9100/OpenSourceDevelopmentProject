@@ -38,7 +38,6 @@ public class ChattingFragment extends Fragment implements View.OnClickListener{
     private View view;
     private String CurrentUserName;
     private String CurrentUesrNumId;
-    private Button subjectButton1, subjectButton2;
 
     @Nullable
     @Override
@@ -90,18 +89,7 @@ public class ChattingFragment extends Fragment implements View.OnClickListener{
                 startActivity(intent);
             }
         });
-//        subjectButton1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getContext(),"subject1", Toast.LENGTH_SHORT).show();
-//                Intent intent =new Intent(getActivity(), ChattingActivity.class);
-//                intent.putExtra("userNum",CurrentUesrNumId);
-//                intent.putExtra("userName",CurrentUserName);
-//                intent.putExtra("Subject","subject1");
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//                startActivity(intent);
-//            }
-//        });
+
         return view;
     }
 

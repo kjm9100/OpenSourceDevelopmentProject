@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -31,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText StdId;
     private EditText Passwd;
     private String userType="Students";
+    private String testFCM;
 
     private RadioGroup SelectUserType;
 
@@ -88,11 +90,13 @@ public class RegisterActivity extends AppCompatActivity {
                             if (userType == "Students") {
                                 addStdData(NAME, NUM, UPW);
                                 userType = "";
+                                testFCM = FirebaseMessaging.getInstance().getToken().getResult();
                                 //회원가입 성공시 회원가입 성공 화면으로 넘어감, 성공 토스트 메시지 출력
                                 Toast.makeText(getApplicationContext(),"Success Sign",Toast.LENGTH_LONG).show();
                                 Intent intent1 = new Intent(RegisterActivity.this, LoginActivity.class);
                                 intent1.putExtra("StdId", NUM);
                                 intent1.putExtra("name", NAME);
+//                                intent1.putExtra("FCM", testFCM);
                                 startActivity(intent1);
                             }
                             //교수자라고 체크하면 교수님 그룹에 데이터 저장

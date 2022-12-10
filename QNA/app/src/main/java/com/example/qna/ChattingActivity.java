@@ -58,7 +58,6 @@ public class ChattingActivity extends AppCompatActivity {
         btn = findViewById(R.id.btn);
         ed2 = findViewById(R.id.chatEdit);
         //send 버튼을 누르면
-//      auth = FirebaseAuth.getInstance();
 
         PreIntent1 = getIntent();
         CurrentUserName = PreIntent1.getStringExtra("userName");
@@ -84,28 +83,7 @@ public class ChattingActivity extends AppCompatActivity {
         chatList = new ArrayList<>();
         uidList=new ArrayList<>();
 
-//        myRef.child("ChatRoom_Question").child(CurrentSubject).child("message").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                chatList.clear();
-//                uidList.clear();
-//
-//                for(DataSnapshot snapShot : snapshot.getChildren()){
-//                    ChatData chat = snapShot.getValue(ChatData.class);
-//                    String uidKey = snapShot.getKey();
-//                    chatList.add(chat);
-//                    uidList.add(uidKey);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error){
-//
-//            }
-//        });
-
-//        mAdapter = new ChatRecycleRAdapter(chatList,uidList,ChattingActivity.this, CurrentUserPrivateNumber,CurrentSubject);
-//        myRecyclerView.setAdapter(mAdapter);
-
+        //데이터베이스 정보 가져와서 recycle 화면에 출력한다.
         myRef.child("ChatRoom_Question").child(CurrentSubject).child("message").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -126,38 +104,6 @@ public class ChattingActivity extends AppCompatActivity {
 
             }
         });
-//        mAdapter = new ChatRecycleRAdapter(chatList,uidList,ChattingActivity.this, CurrentUserPrivateNumber,CurrentSubject);
-//        myRecyclerView.setAdapter(mAdapter);
-
-        //데이터베이스 정보 가져와서 recycle 화면에 출력한다.
-//        myRef.child("ChatRoom_Question").child(CurrentSubject).child("message").addChildEventListener(new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//                Log.d("CHATCHAT", snapshot.getValue().toString());
-//                ChatData chat = snapshot.getValue(ChatData.class);
-//                ((ChatRecycleRAdapter)mAdapter).addChat(chat);
-//            }
-//
-//            @Override
-//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
     }
 
     //DB에 message와 보낸사람 정보 저장한다.

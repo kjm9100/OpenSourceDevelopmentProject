@@ -9,7 +9,6 @@ public class ChatData {
     public String num;     //사용자 사번 또는 학번
 
     public int check_cnt=0;  //질문에 대한 공감 갯수 정보
-    public Map<String, Boolean> checks = new HashMap<>();
     public boolean pushAlaCheck = false;
 
 
@@ -21,13 +20,13 @@ public class ChatData {
         this.num = num;
     }
 
-    public Map<String, Boolean> getChecks() {
-        return checks;
-    }
-
-    public void setChecks(Map<String, Boolean> checks) {
-        this.checks = checks;
-    }
+//    public Map<String, Boolean> getChecks() {
+//        return checks;
+//    }
+//
+//    public void setChecks(Map<String, Boolean> checks) {
+//        this.checks = checks;
+//    }
 
     public String getMessage() {
         return message;

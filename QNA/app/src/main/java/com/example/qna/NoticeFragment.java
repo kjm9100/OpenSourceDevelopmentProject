@@ -30,7 +30,7 @@ import java.io.IOException;
 public class NoticeFragment extends Fragment implements View.OnClickListener {
     private View view;
     Button subjectButton, majorButton, libButton;
-    LinearLayout majornoticeLayout,libnoticeLayout;
+    LinearLayout majornoticeLayout,libnoticeLayout, subnoticeLayout;
 
     int line=0;
     String action="stop";
@@ -343,8 +343,9 @@ public class NoticeFragment extends Fragment implements View.OnClickListener {
         majorButton = (Button) view.findViewById(R.id.majorButton);
         libButton = (Button) view.findViewById(R.id.libButton);
         majornoticeLayout = (LinearLayout) view.findViewById(R.id.majorNoticeLayout);
-        libnoticeLayout=(LinearLayout)view.findViewById(R.id.libNoticeLayout);
+        libnoticeLayout=(LinearLayout)view.findViewById(R.id.libnoticeLayout);
         majorButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        subnoticeLayout=(LinearLayout)view.findViewById(R.id.subnoticeLayout);
         subjectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -353,6 +354,7 @@ public class NoticeFragment extends Fragment implements View.OnClickListener {
                 subjectButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 majorButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 libButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                subnoticeLayout.setVisibility(View.VISIBLE);
 
 //                FragmentManager fragmentManager = getParentFragmentManager();
 //                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -365,6 +367,7 @@ public class NoticeFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 majornoticrawling();
+                subnoticeLayout.setVisibility(View.GONE);
                 libnoticeLayout.setVisibility(View.GONE);
                 majornoticeLayout.setVisibility(View.VISIBLE);
                 subjectButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
@@ -382,6 +385,7 @@ public class NoticeFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 libnoticrawling();
+                subnoticeLayout.setVisibility(View.GONE);
                 libtextviewpage.setText("로딩중");
                 libnoticeLayout.setVisibility(View.VISIBLE);
                 majornoticeLayout.setVisibility(View.GONE);

@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private MyPageFragment frag4;
     private String CurrentUser;
     private String CurrentIDNum;
+
+//    private String FCMtoken = FirebaseMessaging.getInstance().getToken().getResult();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle UserDataBundle = new Bundle();
         UserDataBundle.putString("Name",CurrentUser);
         UserDataBundle.putString("UserNum",CurrentIDNum);
+//        UserDataBundle.putString("FCMT", FCMtoken);
 
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();

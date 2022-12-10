@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -70,6 +71,8 @@ public class MyPageFragment extends Fragment {
     Date mDate;
     SimpleDateFormat mFormat=new SimpleDateFormat("MM");
 
+    String FCMtoken;
+
     public String getTime(){
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
@@ -79,6 +82,7 @@ public class MyPageFragment extends Fragment {
 //        SubjectData subName = new SubjectData();
 //        subName.setSubj(data);
         databaseReference.child("UserData").child("Students").child(CurrentUserID).child("Subject").child("sub"+i).setValue(data);
+        databaseReference.child("ChatRoom_Member").child(data).child(CurrentUserID).setValue(FCMtoken);
     }
 
     @Nullable
@@ -87,6 +91,7 @@ public class MyPageFragment extends Fragment {
         Bundle informbundle = getArguments();
         CurrentUserName =informbundle.getString("Name");
         CurrentUserID =informbundle.getString("UserNum");
+        FCMtoken = informbundle.getString("FCMT");
 
         view = inflater.inflate(R.layout.fragment_mypage, container, false);
         int month=Integer.parseInt(getTime());
@@ -192,7 +197,6 @@ public class MyPageFragment extends Fragment {
                         ArrayAdapter<String>adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1, QList);
                         qlist.setAdapter(adapter);
 
-//                        adapter.notifyDataSetChanged();
                         j=0;
                     }
                     @Override
@@ -249,7 +253,6 @@ public class MyPageFragment extends Fragment {
                         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, AList);
                         alist.setAdapter(adapter1);
 
-//                        adapter1.notifyDataSetChanged();
                         j = 0;
                     }
 
