@@ -17,6 +17,9 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+    static String refreshedToken;
+
+
     @Override
     public void onMessageReceived(@NonNull RemoteMessage message) {
         // Log.e(TAG, message.getFrom());
@@ -73,7 +76,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken (@NonNull String token){
         super.onNewToken(token);
-        String refreshedToken = FirebaseMessaging.getInstance().getToken().getResult();
+        refreshedToken = FirebaseMessaging.getInstance().getToken().getResult();
     }
-
 }

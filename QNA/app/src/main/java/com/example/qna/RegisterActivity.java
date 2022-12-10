@@ -1,5 +1,7 @@
 package com.example.qna;
 
+import static java.sql.DriverManager.println;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+//        Log.d("TOKENTOKENCHECK", testFCM);
         spinner = (Spinner) findViewById(R.id.majorSpinner);
         adapter = ArrayAdapter.createFromResource(this, R.array.major,
                 android.R.layout.simple_spinner_dropdown_item);
@@ -52,6 +58,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         RegisterButton=(Button)findViewById(R.id.registerButton);
         SelectUserType =(RadioGroup) findViewById(R.id.genderGroup);
+
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                testFCM = task.getResult().toString();
+            }
+        });
 
         SelectUserType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -84,13 +97,12 @@ public class RegisterActivity extends AppCompatActivity {
                         if(snapshot.child(NUM).exists()){
                             Toast.makeText(getApplicationContext(),"Sign Fail- id", Toast.LENGTH_LONG).show();
                         }
-
                         else{
                             //만약 학생이라고 체크하면 학생그룹에 데이터 저장
                             if (userType == "Students") {
-                                addStdData(NAME, NUM, UPW);
+                                addStdData(NAME, NUM, UPW, testFCM);
                                 userType = "";
-                                testFCM = FirebaseMessaging.getInstance().getToken().getResult();
+//                                testFCM = FirebaseMessaging.getInstance().getToken().getResult();
                                 //회원가입 성공시 회원가입 성공 화면으로 넘어감, 성공 토스트 메시지 출력
                                 Toast.makeText(getApplicationContext(),"Success Sign",Toast.LENGTH_LONG).show();
                                 Intent intent1 = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -101,7 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
                             }
                             //교수자라고 체크하면 교수님 그룹에 데이터 저장
                             else if (userType=="Professor") {
-                                addProfData(NAME, NUM, UPW);
+                                addProfData(NAME, NUM, UPW, testFCM);
                                 userType = "";
                                 //회원가입 성공시 회원가입 성공 화면으로 넘어감, 성공 토스트 메시지 출력
                                 Toast.makeText(getApplicationContext(),"Success Sign",Toast.LENGTH_LONG).show();
@@ -122,20 +134,22 @@ public class RegisterActivity extends AppCompatActivity {
     }
     //회원가입한 사용자의 Id, Passwd, 학번,이름 데이터베이스에 저장
     //데이터베이스 users 항목의 학생 그룹에 데이터 저장
-    public void addStdData(String userName, String userstdNum, String userPasswd){
+    public void addStdData(String userName, String userstdNum, String userPasswd, String test){
         UserData userData = new UserData();
         userData.setUserName(userName);
         userData.setNum(userstdNum);
         userData.setPasswd(userPasswd);
+        userData.setFCM(test);
         myRef.child("UserData").child("Students").child(userstdNum).setValue(userData);
     }
 
     //데이터베이스 users 항목의 교수님 그룹에 데이터 저장
-    public void addProfData(String userName, String userproNum, String userPasswd){
+    public void addProfData(String userName, String userproNum, String userPasswd, String test){
         UserData userData = new UserData();
         userData.setUserName(userName);
         userData.setNum(userproNum);
         userData.setPasswd(userPasswd);
+        userData.setFCM(test);
         myRef.child("UserData").child("Professor").child(userproNum).setValue(userData);
     }
 }
