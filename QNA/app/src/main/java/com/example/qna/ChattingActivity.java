@@ -72,6 +72,8 @@ public class ChattingActivity extends AppCompatActivity {
                 if(msg != null){
                     addChatDate(CurrentUserName,msg, CurrentUserPrivateNumber);
                 }
+
+                ed2.setText("");
             }
         });
 

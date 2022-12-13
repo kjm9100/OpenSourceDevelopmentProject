@@ -79,6 +79,7 @@ public class RespondActivity extends AppCompatActivity {
                 if(Respond!=null){
                     addRespond(Respond,CurrentUser);
                 }
+                respond.setText("");
             }
         });
 

@@ -147,16 +147,12 @@ public class ChatRecycleRAdapter extends RecyclerView.Adapter<ChatRecycleRAdapte
                         Log.d("CHECKPRO", snapshot.getValue().toString());
                          ProKey = snapshot.getValue().toString();
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
                         }
                     });
-//                     sendPostToFCM_usr(Subject, Subject+ "에서" + "교수님의 도움이 필요해요!",ProKey);
 //                }
-                sendPostToFCM_usr(Subject, Subject+ "에서" + "교수님의 도움이 필요해요!",ProKey);
-
                 updateData(chat.getCheck_cnt(),thisposition);
             }
         });
@@ -197,7 +193,6 @@ public class ChatRecycleRAdapter extends RecyclerView.Adapter<ChatRecycleRAdapte
         ChatInformUpdate.put("check_cnt", Check_Cnt);
         myRef.child("ChatRoom_Question").child(Subject).child("message").child(uidList.get(position)).updateChildren(ChatInformUpdate);
     }
-
 
     private void sendPostToFCM_usr(final String title, final String body, final String fcmToken){
         new Thread(new Runnable(){
