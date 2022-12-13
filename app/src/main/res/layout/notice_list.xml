@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/noticeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Notification"
+        android:fontFamily="@font/nanumsquare_b"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:drawableStart="@drawable/ic_baseline_mail_24"
+        android:drawableLeft="@drawable/ic_baseline_mail_24"
+        android:background="@color/colorPrimary"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF" >
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="정윤민"
+            android:padding="3dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="2022-11-23"
+            android:padding="3dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
